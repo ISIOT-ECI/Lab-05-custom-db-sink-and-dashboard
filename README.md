@@ -14,7 +14,7 @@ In this exercise, you will complete the data streaming pipeline with the integra
 
 1. Add [InfluxDB](https://hub.docker.com/_/influxdb) and [Grafana](https://hub.docker.com/r/grafana/grafana/) services to the current Docker-compose configuration:
 
-	```YAML
+	```
 	influxdb:
     	  image: influxdb:latest
     	  container_name: influxdb
@@ -30,7 +30,7 @@ In this exercise, you will complete the data streaming pipeline with the integra
       	    - ./influxdb-data:/var/lib/influxdb
 	```
 
-	```YAML
+	```
   	grafana:
 	  image: grafana/grafana:latest
    	  container_name: grafana
