@@ -20,14 +20,14 @@ In this exercise, you will complete the data streaming pipeline with the integra
     	container_name: influxdb
     	hostname: influxdb
     	ports:
-      		- "8083:8083"
-      		- "8086:8086"
-      		- "8090:8090"
+      	  - "8083:8083"
+      	  - "8086:8086"
+      	  - "8090:8090"
     	environment: 
-      		INFLUXDB_DATA_ENGINE: tsm1
-      		INFLUXDB_REPORTING_DISABLED: 'false'
+      	  INFLUXDB_DATA_ENGINE: tsm1
+      	  INFLUXDB_REPORTING_DISABLED: 'false'
     	volumes:
-      		- ./influxdb-data:/var/lib/influxdb
+      	  - ./influxdb-data:/var/lib/influxdb
 	```
 
 	```YAML
@@ -36,14 +36,14 @@ In this exercise, you will complete the data streaming pipeline with the integra
    	 	container_name: grafana
     	hostname: grafana
     	ports:
-      		- "3000:3000"
+      	  - "3000:3000"
     	environment: 
-      		GF_INSTALL_PLUGINS: grafana-clock-panel,briangann-gauge-panel,natel-plotly-panel,grafana-simple-json-datasource
+      	  GF_INSTALL_PLUGINS: grafana-clock-panel,briangann-gauge-panel,natel-plotly-panel,grafana-simple-json-datasource
     	user: "0"
     	links:
-      		- influxdb
+      	  - influxdb
     	volumes:
-      		- ./grafana-data:/var/lib/grafana
+      	  - ./grafana-data:/var/lib/grafana
 	```
 
 2. Once the services are up and running, open an InfluxDB client on the influxdb container, as described on [its documentation](https://docs.influxdata.com/influxdb/v1.8/introduction/get-started/). Once there, create a database to store the data time series recevied from Flink.
